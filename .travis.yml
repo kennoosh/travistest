@@ -1,0 +1,9 @@
+lanaguage: bash
+services:
+  - docker  
+before_install:
+  - docker build -t kennoosh/travistest . 
+  - docker run -d -p 127.0.0.1:80:80 kennoosh/travistest
+
+script:
+  - curl http://127.0.0.1:80
